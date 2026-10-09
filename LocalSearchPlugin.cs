@@ -13,7 +13,7 @@ public sealed class LocalSearchPlugin(ILibraryQuery library, IPluginHost pluginH
         SourceKey,
         "Local library",
         "0.1.0",
-        Author: "Nobugsgiven",
+        Author: "MediaPager",
         Description: "Search provider for content already in your library.");
 
     public async Task<IReadOnlyList<ProviderSearchHit>> SearchAsync(SearchRequest request, CancellationToken cancellationToken)

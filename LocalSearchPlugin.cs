@@ -23,6 +23,7 @@ public sealed class LocalSearchPlugin(ILibraryQuery library, IPluginHost pluginH
             request.Limit,
             request.MediaTypeSlug,
             request.CatalogTypeSlug,
+            request.CatalogId,
             cancellationToken);
         var tmdb = pluginHost.GetPlugin("mediapager.metadata.tmdb") as IMetadataProviderPlugin;
         var tasks = hits.Select(async hit =>

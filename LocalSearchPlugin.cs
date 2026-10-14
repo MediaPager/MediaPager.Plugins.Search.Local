@@ -18,7 +18,12 @@ public sealed class LocalSearchPlugin(ILibraryQuery library, IPluginHost pluginH
 
     public async Task<IReadOnlyList<ProviderSearchHit>> SearchAsync(SearchRequest request, CancellationToken cancellationToken)
     {
-        var hits = await library.SearchAsync(request.Query ?? "", request.Limit, cancellationToken);
+        var hits = await library.SearchAsync(
+            request.Query ?? "",
+            request.Limit,
+            request.MediaTypeSlug,
+            request.CatalogTypeSlug,
+            cancellationToken);
         var tmdb = pluginHost.GetPlugin("mediapager.metadata.tmdb") as IMetadataProviderPlugin;
         var tasks = hits.Select(async hit =>
         {
